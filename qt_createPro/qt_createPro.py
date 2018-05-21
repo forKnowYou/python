@@ -31,7 +31,6 @@ try:
       files = os.walk(sys.argv[2])
       for dirpath, dirnames, filenames in files:
         for i in filenames:
-          print(i)
           if (re.search('\.c$', i) != None) or (re.search('\.cpp$', i) != None) or (re.search('\.ino$', i) != None):
             rslt += '  ' + dirpath + '\\' + i + ' \\\n'
 
