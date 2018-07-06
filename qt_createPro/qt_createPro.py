@@ -20,6 +20,13 @@ try:
               rslt += '  ' + dirpath + ' \\\n'
 
     if os.path.isdir(sys.argv[2]):
+      files = os.walk(sys.argv[2])
+      for dirpath, dirnames, filenames in files:
+        for i in filenames:
+          if (re.search('\.h$', i) != None) or (re.search('\.hpp$', i) != None):
+            if rslt.count(dirpath) == 0:
+              rslt += '  ' + dirpath + ' \\\n'
+              
       rslt += '\nHEADERS += \\\n'
       files = os.walk(sys.argv[2])
       for dirpath, dirnames, filenames in files:
