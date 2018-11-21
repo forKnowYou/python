@@ -1,0 +1,3 @@
+platform: ESP32, lib: C:\Users\dell\AppData\Local\Arduino15\packages\esp32\hardware\DFRobot_FireBeetle-ESP32\0.0.7, defines: ESP_PLATFORM ESP32
+platform: STM32, lib: null, defines: USE_STDPERIPH_DRIVER
+platform: AVR, lib: C:\arduino-1.8.2\hardware\tools, defines: __AVR__
