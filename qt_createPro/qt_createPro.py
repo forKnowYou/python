@@ -81,14 +81,30 @@ if libraryPath != "":
       if re.search("\.h$", i) != None or re.search("\.hpp$", i) != None:
         if rslt.count(dirpath) == 0:
           rslt += "  " + dirpath + " \\\n"
+  
+  # files = os.walk(libraryPath)
+  # rslt += "\nHEADERS += \\\n"
+  # for dirpath, dirnames, filenames in files:
+    # for i in filenames:
+      # if (re.search("\.h$", i) != None) or (re.search("\.hpp$", i) != None):
+        # rslt += "  " + dirpath + "\\" + i + " \\\n"
+        
   files = os.walk(libraryPath)
-  rslt += "\nRESOURCES += \\\n"
+  rslt += "\nSOURCES += \\\n"
   for dirpath, dirnames, filenames in files:
     for i in filenames:
       if re.search("\.c$", i) != None or re.search("\.cpp$", i) != None or re.search("\.ino$", i) != None:
         rslt += "  " + dirpath + "\\" + i + " \\\n"
 
 if resourcesPath != "":
+  files = os.walk(resourcesPath)
+  rslt += "\nINCLUDEPATH += \\\n"
+  for dirpath, dirnames, filenames in files:
+    for i in filenames:
+      if re.search("\.h$", i) != None or re.search("\.hpp$", i) != None:
+        if rslt.count(dirpath) == 0:
+          rslt += "  " + dirpath + " \\\n"
+        
   files = os.walk(resourcesPath)
   rslt += "\nHEADERS += \\\n"
   for dirpath, dirnames, filenames in files:
